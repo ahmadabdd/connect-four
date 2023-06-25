@@ -44,6 +44,13 @@ export const useLogic = () => {
       [1, -1], // diagonal \
     ];
 
+    const isFull = currentBoard[0].every((cell) => cell !== null);
+
+    if (isFull) {
+      setWinner("Tie");
+      return;
+    }
+
     const checkDirection = (
       row: number,
       col: number,

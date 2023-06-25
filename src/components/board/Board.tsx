@@ -10,6 +10,7 @@ import "./Board.css";
 // animation
 import Lottie from "react-lottie";
 import celebrate from "../../assets/lottie/98537-celebrate.json";
+import gameOver from "../../assets/lottie/55341-gameover.json";
 
 const Board: React.FC = () => {
   const { 
@@ -35,20 +36,24 @@ const Board: React.FC = () => {
                     <Lottie
                       isClickToPauseDisabled
                       options={{
-                        animationData: celebrate,
+                        animationData: winner === 'Tie' ? gameOver : celebrate,
                       }}
                     />
                   </div>
                 )}
                 <div className="winner">
-                  <h1>The winner is</h1>
+                  <h1>
+                    {winner === 'Tie' ? 'Game over!' : 'The winner is'}
+                  </h1>
                   <h1
                     style={{
                       fontSize: "50px",
                       color: winner === "O" ? "#f2da78" : "#f27878",
                     }}
                   >
-                    {winner === "O" ? names.yellowPlayer : names.redPlayer}
+                    {winner === "O" && names.yellowPlayer}
+                    {winner === "X" && names.redPlayer}
+                    {winner === 'Tie' && "It's a tie!"}
                   </h1>
                 </div>
               </div>
@@ -80,7 +85,7 @@ const Board: React.FC = () => {
                     className="cell"
                     onClick={() => handleMove(colIndex)}
                   >
-                    <span className={`${row[colIndex] || ""}`}>{`${colIndex} ${rowIndex}`}</span>
+                    <span className={`${row[colIndex] || ""}`}></span>
                   </div>
                 ))}
               </div>
