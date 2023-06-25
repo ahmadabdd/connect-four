@@ -1,0 +1,35 @@
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white;
+
+  .actions-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: rgb(133, 171, 243);
+  scale: 1.03;
+}
+
+button {
+  cursor: pointer;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+}
